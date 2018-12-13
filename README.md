@@ -5,7 +5,7 @@
 * Implement basic routing in a React app
 * Implement nested routing
   - Use `match` props
-* Pass state to route components
+* Pass props to route components (from state)
 
 * STRETCH: Discuss route props
 * STRETCH: Navigate/redirect programatically

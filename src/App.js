@@ -9,17 +9,49 @@ import Contact from './components/Contact'
 import NotFound from './components/NotFound'
 import Navigation from './components/Navigation'
 
+// Import React Router components
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+
 class App extends Component {
+  state = {
+    userName: 'Matt'
+  }
+
   render() {
+    // Wrap entire app in a Router
     return (
-      <div className="App">
-        <Navigation />
-        <Home />
-        <About />
-        <Contact />
-        <NotFound />
-      </div>
-    );
+      <Router>
+        <div className="App">
+
+          <Route
+            path='/'
+            component={Navigation}
+          />
+
+          <Switch>
+            <Route
+              exact path='/'
+              component={Home}
+            />
+            <Route
+              path='/information'
+              component={About}
+            />
+            <Route
+              path='/contact'
+              render={(props) => <Contact match={props.match}
+                                          username={this.state.userName}/>}
+            />
+            <Route
+              component={NotFound}
+            />
+          </Switch>
+
+        </div>
+      </Router>
+
+    )
   }
 }
 

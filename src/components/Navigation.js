@@ -1,11 +1,13 @@
 import React from 'react'
 
-const Navigation = () => {
+import { Link } from 'react-router-dom'
+
+const Navigation = (props) => {
   return (
     <div>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+      <Link to='/'>Home</Link>
+      <Link to='/information'>About</Link>
+      <Link to='/contact'>Contact</Link>
     </div>
   )
 }
