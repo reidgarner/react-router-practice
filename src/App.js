@@ -16,7 +16,7 @@ class App extends Component {
     username: 'Reid' 
   }
 
-  render() {
+  render(props) {
     return (
       <div className="App">
         <Router>
@@ -27,12 +27,14 @@ class App extends Component {
             <Switch>
             <Route 
               exact path='/'
-              component={Home}
+              render={
+                (props) => <Home history={props.history} />
+              }
             />
             <Route 
               path='/about'
               render={
-                (routerProps) => <About match={routerProps.match} username={this.state.username} />
+                (props) => <About match={props.match} username={this.state.username} />
               }
             />
             <Route 
@@ -42,7 +44,6 @@ class App extends Component {
             <Route
               component={NotFound}
             />
-
           </Switch>
         </Router>
       </div>

@@ -4,7 +4,6 @@ import { NavLink, Route } from 'react-router-dom'
 import Nested from './Nested'
 
 const About = ({ match, username }) => {
-  console.log(match)
   const nestedPath = `${match.path}/more-info`
   return (
     <div>
